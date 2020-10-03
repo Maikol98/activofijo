@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:softwareproject/src/models/tranferencia_model.dart';
-import 'package:softwareproject/src/providers/bitacora_provider.dart';
 import 'package:softwareproject/src/providers/tranferencia_provider.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 

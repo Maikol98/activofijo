@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:softwareproject/src/models/custodio.mode.dart';
+import 'package:softwareproject/src/providers/tranferencia_provider.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 
 class CreateTranferenciaPage extends StatefulWidget {
@@ -14,6 +16,8 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
   String _opcionSeleccionada = 'Volar';
 
   List<String> _poderes = ['Volar', 'Rayos X', 'Super Aliento', 'Super Fuerza'];
+
+
   //Permite manejar una relaccion con el texto en este caso Fecha para cambiar sus propiedades como el valor
   TextEditingController _inputFieldDateController = new TextEditingController();
 
