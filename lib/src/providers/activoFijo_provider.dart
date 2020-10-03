@@ -13,7 +13,7 @@ class ActivoFijoProvider{
   String _url = 'fierce-dawn-95981.herokuapp.com';
   final _prefs = new PreferenciasUsuario();
  
-  Future login(user, pass) async{
+  Future<int> login(user, pass) async{
     final url = Uri.https( _url , 'api/Login');
     print(url);
     final resp = await http.post(url, body: {
@@ -22,7 +22,7 @@ class ActivoFijoProvider{
     });
 
     final decodeData = json.decode(resp.body);
-
+    print(decodeData);
     if ( decodeData == 0 ) {
       return 0;
     }else{
@@ -30,7 +30,7 @@ class ActivoFijoProvider{
       _prefs.correo = usuario.email;
       _prefs.nombre = usuario.name;
       print(usuario.name);
-      _prefs.codigoUsuario = decodeData;
+      _prefs.codigoUsuario = usuario.id;
       return 1;
     }
   }

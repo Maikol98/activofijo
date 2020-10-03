@@ -18,11 +18,11 @@ class PreferenciasUsuario {
 
   // GET y SET del nombre
   get codigoUsuario {
-    return _prefs.getString('nombre') ?? '';
+    return _prefs.getInt('id') ?? '';
   }
 
-  set codigoUsuario( String value ) {
-    _prefs.setString('nombre', value);
+  set codigoUsuario( int value ) {
+    _prefs.setInt('id', value);
   }
   
 

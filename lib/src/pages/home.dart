@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:softwareproject/src/providers/activoFijo_provider.dart';
+import 'package:softwareproject/src/widgets/menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -19,92 +20,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Software'),
+        title: Text('Activo Fijos'),
       ),
-      body: Center(child: Text('hola mundo')),
-      drawer: menu()
+      drawer: MenuWidget(),
+      body: Center(child: Text('sad')),
     );
   }
-
-
-  // MENU
-  Widget menu(){
-    return Drawer(
-      child: ListView(
-        children: <Widget>[
-          DrawerHeader(
-            padding: EdgeInsets.only(top:30),
-            child: Column(
-              children:<Widget>[
-                CircleAvatar(
-                  radius: 40.0,
-                  backgroundColor: Colors.blueGrey[100],
-                  child: Icon(Icons.person, size: 60.0, color: Colors.black,)
-                ),
-                SizedBox(height: 10),
-                Text(prefs.nombre)
-              ], 
-            ),
-            decoration: BoxDecoration(
-              color: Colors.blue
-            ),
-          ),
-          ListTile(
-            title: Text('DEPRESION'),
-            onTap: () {
-            },
-          ),
-          ListTile(
-            title: Text('BIEN'),
-            onTap: () {
-            },
-          ),
-          ListTile(
-            title: Text('TRANSFERENCIA'),
-            onTap: () {
-                
-            },
-          ),
-          ListTile(
-            title: Text('EMPLEADOS'),
-            onTap: () {
-                
-            },
-          ),
-          ListTile(
-            title: Text('INGRESO'),
-            onTap: () {
-                
-            },
-          ),
-          ListTile(
-            title: Text('REVISION TECNICA'),
-            onTap: () {
-                
-            },
-          ),
-          ListTile(
-            title: Text('BITACORA'),
-            onTap: () {
-                
-            },
-          ),
-          ListTile(
-            title: Text('USUARIO'),
-            onTap: () {
-                
-            },
-          ),
-          ListTile(
-            title: Text('SALIR'),
-            onTap: () {
-                
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
 
 }

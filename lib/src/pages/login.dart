@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:softwareproject/src/providers/activoFijo_provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
+  final prefs = new PreferenciasUsuario();
   bool _ocultarContra = true;
   IconData _iconoContra = Icons.lock_outline;
   TextEditingController _user = new TextEditingController();
@@ -21,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    _user.text = prefs.correo ;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -121,9 +124,10 @@ class _LoginPageState extends State<LoginPage> {
         Icon(Icons.keyboard_arrow_right, size: 50.0,)
         ],
       ),
-      onPressed: () {
-        Navigator.pushNamed(context, 'home');
-        //activoFijoProvider.login(_user.text, _password.text);
+      onPressed: () async{
+        if( await activoFijoProvider.login(_user.text, _password.text) == 1 ){
+          Navigator.pushNamed(context, 'home');
+        }
       },
     );
  }
