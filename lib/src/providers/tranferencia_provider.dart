@@ -4,8 +4,9 @@ import 'dart:convert';
 
 import 'package:softwareproject/src/models/tranferencia_model.dart';
 
+final String _url     = 'fierce-dawn-95981.herokuapp.com';
+
 class TranferenciaProvider {
-  String _url     = 'fierce-dawn-95981.herokuapp.com';
 
   Future<List<Tranferencia>> getTranferencia() async {
     final url = Uri.https(_url,'/api/Tranferencia');
@@ -19,5 +20,8 @@ class TranferenciaProvider {
 
   }
 
+}
+
+class TranferenciaCreateProvider{
 
 }

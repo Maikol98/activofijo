@@ -86,7 +86,7 @@ class TranferenciaPage extends StatelessWidget {
           //Titulo parte superior
           ListTile(
             title: Text("Numero Traferencia: " + data.nroTranferencia.toString()),
-            subtitle: Text("Custorio: " + data.nombrec1 + '\n' + "Responsable: " + data.nombrer),
+            subtitle: Text("Custorio Origen: " + data.nombrec1 + '\n' + "Responsable: " + data.nombrer),
           ),
           //Ordenar en una fila
           Row(
