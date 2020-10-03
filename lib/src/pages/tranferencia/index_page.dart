@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:softwareproject/src/models/bitacora_model.dart';
+import 'package:softwareproject/src/models/tranferencia_model.dart';
 import 'package:softwareproject/src/providers/bitacora_provider.dart';
+import 'package:softwareproject/src/providers/tranferencia_provider.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 
-class BitacoraPage extends StatelessWidget {
+class TranferenciaPage extends StatelessWidget {
   //Accesorio donde se encuentra la peticion http
-  BitacoraPage({Key key}) : super(key: key);
+  TranferenciaPage({Key key}) : super(key: key);
   final bitacoraProvider = new BitacoraProvider();
   
   @override
   Widget build(BuildContext context) {
     
     //Obtener la peticio http
-    final bitacoraProviders = new BitacoraProvider();
+    final tranferenciaProvider = new TranferenciaProvider();
 
     
 
     return FutureBuilder(
-      future: bitacoraProviders.getBitacora(),
+      future: tranferenciaProvider.getTranferencia(),
       //snapshot optiene la respuesta del http
       builder: (BuildContext context, AsyncSnapshot<List> snapshot){
         //print(snapshot.data);
@@ -43,6 +44,13 @@ class BitacoraPage extends StatelessWidget {
                   );
                 }
               ),
+
+              floatingActionButton:FloatingActionButton(
+                child: Icon( Icons.add ),
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, 'tranferencia/create');
+                }
+              )
             );
         }else{
             return Container(
@@ -59,10 +67,10 @@ class BitacoraPage extends StatelessWidget {
   }
 
 
-  Widget _card1(Bitacora bitacora,BuildContext context){
+  Widget _card1(Tranferencia tranferencia,BuildContext context){
     
     //Container
-    var bitacora2 = bitacora;
+    var data = tranferencia;
 
 
     return Card(
@@ -77,14 +85,14 @@ class BitacoraPage extends StatelessWidget {
         children: <Widget>[
           //Titulo parte superior
           ListTile(
-            title: Text(bitacora2.name),
-            subtitle: Text(bitacora2.accion),
+            title: Text("Numero Traferencia: " + data.nroTranferencia.toString()),
+            subtitle: Text("Custorio: " + data.nombrec1 + '\n' + "Responsable: " + data.nombrer),
           ),
           //Ordenar en una fila
           Row(
             children: <Widget>[
               Expanded(
-                child: Text(bitacora2.fechaAccion, textAlign: TextAlign.center, textScaleFactor: 0.9,),
+                child: Text(data.fechaTranferencia, textAlign: TextAlign.center, textScaleFactor: 0.9,),
               ),
             
             

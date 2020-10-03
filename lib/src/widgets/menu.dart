@@ -42,9 +42,7 @@ class MenuWidget extends StatelessWidget {
           ),
           ListTile(
             title: Text('TRANSFERENCIA'),
-            onTap: () {
-              
-            },
+            onTap: () => Navigator.pushReplacementNamed(context, 'tranferencia')
           ),
           ListTile(
             title: Text('EMPLEADOS'),
