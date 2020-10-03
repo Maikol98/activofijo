@@ -66,9 +66,7 @@ class MenuWidget extends StatelessWidget {
           ),
           ListTile(
             title: Text('BITACORA'),
-            onTap: () {
-                  
-            },
+            onTap: () => Navigator.pushReplacementNamed(context, 'bitacora')
           ),
           ListTile(
             title: Text('USUARIO'),

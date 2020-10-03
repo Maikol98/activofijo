@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:softwareproject/src/pages/bitacora_page.dart';
 import 'package:softwareproject/src/pages/home.dart';
 import 'package:softwareproject/src/pages/login.dart';
 import 'package:softwareproject/src/pages/usuario.dart';
 import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
+
  
 void main() async { 
 
@@ -26,9 +28,10 @@ class MyApp extends StatelessWidget {
       initialRoute: 'login',
 
       routes:{
-        'login'   : (BuildContext context)=>LoginPage(),
-        'home'    : (BuildContext context)=>HomePage(),
-        'usuario' : (BuildContext context)=>UsuarioPage()
+        'login'   : (BuildContext context) => LoginPage(),
+        'home'    : (BuildContext context) => HomePage(),
+        'usuario' : (BuildContext context) => UsuarioPage(),
+        'bitacora': (BuildContext context) => BitacoraPage()
       },
     );
   }
