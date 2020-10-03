@@ -89,11 +89,10 @@ class BitacoraPage extends StatelessWidget {
           ),
           //Ordenar en una fila
           Row(
-            
             children: <Widget>[
-            Expanded(
-              child: Text(bitacora2.fechaAccion, textAlign: TextAlign.center, textScaleFactor: 0.9,),
-            ),
+              Expanded(
+                child: Text(bitacora2.fechaAccion, textAlign: TextAlign.center, textScaleFactor: 0.9,),
+              ),
             
             
           ],
