@@ -7,7 +7,6 @@ import 'package:softwareproject/src/widgets/menu.dart';
 class TranferenciaPage extends StatelessWidget {
   //Accesorio donde se encuentra la peticion http
   TranferenciaPage({Key key}) : super(key: key);
-  final bitacoraProvider = new BitacoraProvider();
   
   @override
   Widget build(BuildContext context) {
