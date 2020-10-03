@@ -38,7 +38,7 @@ class BitacoraPage extends StatelessWidget {
                       //Hijo de hijos
                       child: Column(children: <Widget>[
                         _card1(snapshot.data[index],context),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: 15.0),
                       ],),
                   );
                   
@@ -70,18 +70,70 @@ class BitacoraPage extends StatelessWidget {
     
     //Container
     var bitacora2 = bitacora;
+
+
+    return Card(
+      //Que tan alta estara la tarjeta en realicion a la sobre que va a proyectar
+      //Sombra
+      elevation: 3.0,
+      //Agregar bordes
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+
+      //Columna
+      child: Column(
+        children: <Widget>[
+          //Titulo parte superior
+          ListTile(
+            title: Text(bitacora2.name),
+            subtitle: Text(bitacora2.accion),
+          ),
+          //Ordenar en una fila
+          Row(
+            
+            children: <Widget>[
+            Expanded(
+              child: Text(bitacora2.fechaAccion, textAlign: TextAlign.center, textScaleFactor: 0.9,),
+            ),
+            
+            
+          ],
+
+
+          ),
+        ],
+      ),
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     final card = Container(
       child: Column(
         children: <Widget>[
           Container(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(5.0),
               //Hijo
               child: Column(
                 children: <Widget>[
-                  Text('Categoria: ' + bitacora2.name),
-                  Text('Empresa: ' + bitacora2.email),
-                  Text('Nombre: ' + bitacora2.accion),
-                  Text('Precio: ' + bitacora2.fechaAccion),
+                  Text('Nombre: ' + bitacora2.name),
+                  Text('Email: ' + bitacora2.email),
+                  Text('Accion: ' + bitacora2.accion),
+                  Text('Fecha: ' + bitacora2.fechaAccion),
                 ],
               ),
               //child: Text('Nombre: ' + bitacora2.nombre),
