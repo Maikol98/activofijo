@@ -38,7 +38,7 @@ class BitacoraPage extends StatelessWidget {
                       //Hijo de hijos
                       child: Column(children: <Widget>[
                         _card1(snapshot.data[index],context),
-                        SizedBox(height: 15.0),
+                        SizedBox(height: 10.0),
                       ],),
                   );
                   
