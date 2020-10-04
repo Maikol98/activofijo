@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:softwareproject/src/models/revision_tecnica_model.dart';
-import 'package:softwareproject/src/providers/revision_tecnica_provider.dart';
+import 'package:softwareproject/src/models/revision_tecnica_mantenimiento_page.dart';
+import 'package:softwareproject/src/providers/revision_tecnica_mantenimiento_provider%20copy.dart';
 
-class RevisionTecnicaPage extends StatelessWidget {
+class MantenimientoPage extends StatelessWidget {
   //Accesorio donde se encuentra la peticion http
 
   @override
   Widget build(BuildContext context) {
 
     //Obtener la peticio http
-    final mantenimientoProviders = new RevisionProvider();
+    final mantenimientoProviders = new RevisionMantenimientoProvider();
 
     
 
     return FutureBuilder(
-      future: mantenimientoProviders.getRevision(),
+      future: mantenimientoProviders.getRevisionMantenimiento(),
       //snapshot optiene la respuesta del http
       builder: (BuildContext context, AsyncSnapshot<List> snapshot){
         //print(snapshot.data);
@@ -58,7 +58,7 @@ class RevisionTecnicaPage extends StatelessWidget {
 
 
   
-  Widget _card1(Revision data,BuildContext context){
+  Widget _card1(RevisionMantenimiento data,BuildContext context){
     
     return Card(
       //Que tan alta estara la tarjeta en realicion a la sobre que va a proyectar

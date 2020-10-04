@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:softwareproject/src/pages/navegation_revision_tecnica/revaluo/index_page.dart';
+import 'package:softwareproject/src/pages/navegation_revision_tecnica/mantenimiento/index_page.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/revision_tecnica/index_page.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 
@@ -49,7 +49,7 @@ class _HomePageState extends State<NavegationRevisionTecnicaPage> {
               icon: Icon(Icons.settings),
             ),
             BottomNavigationBarItem(
-              title: Text('Revaluo'),
+              title: Text('Mantenimiento'),
               icon: Icon(Icons.attach_money),
             ),
           ],
@@ -78,7 +78,7 @@ class _HomePageState extends State<NavegationRevisionTecnicaPage> {
     if (positionIndex == 0){
       return RevisionTecnicaPage();
     }else{
-      return RevaluoPage();
+      return MantenimientoPage();
     }
   }
 }

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:softwareproject/src/models/revision_tecnica_mantenimiento_page.dart';
 
-class TranferenciaProvider {
+class RevisionMantenimientoProvider {
   String _url     = 'fierce-dawn-95981.herokuapp.com';
   
   Future<List<RevisionMantenimiento>> getRevisionMantenimiento() async {
