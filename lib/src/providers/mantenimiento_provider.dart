@@ -20,4 +20,14 @@ class MantenimientoProvider {
   }
 
 
+  Future<int> postDatos(Map<String,String> datos) async{
+
+    final url = Uri.http(_url, 'api/Mantenimiento/create');
+    final resp = await http.post(url,body: datos);
+
+    return json.decode(resp.body);
+    
+  }
+
+
 }

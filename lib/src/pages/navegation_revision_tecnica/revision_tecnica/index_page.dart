@@ -94,7 +94,7 @@ class RevisionTecnicaPage extends StatelessWidget {
                   icon: const Icon(Icons.settings, size: 12.0, color: Colors.brown),
                   label: const Text('Mantenimiento',style: TextStyle(fontSize: 13.0)),
                   onPressed: () {
-                    print('Comenta algo');
+                    Navigator.pushReplacementNamed(context, 'Mantenimieto/create', arguments: data);
                   },
                 ),
                 new FlatButton.icon(

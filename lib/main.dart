@@ -5,6 +5,7 @@ import 'package:softwareproject/src/pages/login.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/baja/create_page.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/create_page.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/index_page.dart';
+import 'package:softwareproject/src/pages/navegation_revision_tecnica/mantenimiento/create_page.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/revaluo/createMantenimiento_page.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/revaluo/createRevision_page.dart';
 import 'package:softwareproject/src/pages/tranferencia/create_page.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         'baja/create'           : (BuildContext context) => CreateBajaPage(),
         'revaluoRevision/create': (BuildContext context) => CreateRevaluoRevisionPage(),
         'revaluoRManteni/create': (BuildContext context) => CreateRevaluoMantenimientoPage(),
+        'Mantenimieto/create'   : (BuildContext context) => CreateMantenimientoPage(),
       },
     );
   }
