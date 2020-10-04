@@ -39,16 +39,16 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
           //_crearFecha(context),
           
           //Custodio origen
-          getCustodioDropdown(_custodioOrigen),
+          getCustodioOrigenDropdown(),
           
           //Custodio destino
-          getCustodioDropdown(_custodioDestino),
+          getCustodioDestinoDropdown(),
 
           //Responsable
-          getResponsableDropdown(_responsable),
+          getResponsableDropdown(),
 
           //Bien
-          getBienDropdown(_bien),
+          getBienDropdown(),
           
         ],
       ),
@@ -74,8 +74,8 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
       }));
   }
 
-  //Custodio
-  Widget getCustodioDropdown(String _custodio){
+  //Custodio Origen
+  Widget getCustodioOrigenDropdown(){
     return FutureBuilder(
       future: tranferenciaProvider.getCustodio(),
       //snapshot optiene la respuesta del http
@@ -86,20 +86,21 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
             return Row(
               
               children: <Widget>[
+                
                 SizedBox(
-                  width: 30.0,
+                  width: 10.0,
                 ),
                 //Expandir al maximo
                 Expanded(
                   child: DropdownButton(
                     
                     //Valor es la opcion seleccionada
-                    value: _custodio,
+                    value: _custodioOrigen,
                     items: _agregarDatosCustodio(snapshot.data),
                     //Actualizar el Dropdown y poner el texto seleccionado
                     onChanged: (opt) {
                       setState(() {
-                        _custodio = opt;
+                        _custodioOrigen = opt;
                       });
                     },
                   ),
@@ -118,6 +119,54 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
       }
     ); 
   }
+
+    //Custodio Destino
+  Widget getCustodioDestinoDropdown(){
+    return FutureBuilder(
+      future: tranferenciaProvider.getCustodio(),
+      //snapshot optiene la respuesta del http
+      builder: (BuildContext context, AsyncSnapshot<List> snapshot){
+        //print(snapshot.data);
+       
+        if (snapshot.hasData){
+            return Row(
+              
+              children: <Widget>[
+                
+                SizedBox(
+                  width: 10.0,
+                ),
+                //Expandir al maximo
+                Expanded(
+                  child: DropdownButton(
+                    
+                    //Valor es la opcion seleccionada
+                    value: _custodioDestino,
+                    items: _agregarDatosCustodio(snapshot.data),
+                    //Actualizar el Dropdown y poner el texto seleccionado
+                    onChanged: (opt) {
+                      setState(() {
+                        _custodioDestino = opt;
+                      });
+                    },
+                  ),
+                )
+              ],
+            );
+        }else{
+            return Container(
+              height: 400.0,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+        }
+
+      }
+    ); 
+  }
+  
+  //Datos de Custodio
   List<DropdownMenuItem<String>> _agregarDatosCustodio(data) {
     List<DropdownMenuItem<String>> lista = new List();
     
@@ -137,7 +186,7 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
   }
 
   //Responsable
-  Widget getResponsableDropdown(String value){
+  Widget getResponsableDropdown(){
     return FutureBuilder(
       future: tranferenciaProvider.getResponsable(),
       //snapshot optiene la respuesta del http
@@ -149,19 +198,19 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
               
               children: <Widget>[
                 SizedBox(
-                  width: 30.0,
+                  width: 10.0,
                 ),
                 //Expandir al maximo
                 Expanded(
                   child: DropdownButton(
                     
                     //Valor es la opcion seleccionada
-                    value: value,
+                    value: _responsable,
                     items: _agregarDatosResponsable(snapshot.data),
                     //Actualizar el Dropdown y poner el texto seleccionado
                     onChanged: (opt) {
                       setState(() {
-                        value = opt;
+                        _responsable = opt;
                       });
                     },
                   ),
@@ -199,7 +248,7 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
   }
 
   //Bien
-  Widget getBienDropdown(String value){
+  Widget getBienDropdown(){
     return FutureBuilder(
       future: tranferenciaProvider.getBien(),
       //snapshot optiene la respuesta del http
@@ -211,19 +260,19 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
               
               children: <Widget>[
                 SizedBox(
-                  width: 30.0,
+                  width: 10.0,
                 ),
                 //Expandir al maximo
                 Expanded(
                   child: DropdownButton(
                     
                     //Valor es la opcion seleccionada
-                    value: value,
+                    value: _bien,
                     items: _agregarDatosBien(snapshot.data),
                     //Actualizar el Dropdown y poner el texto seleccionado
                     onChanged: (opt) {
                       setState(() {
-                        value = opt;
+                        _bien = opt;
                       });
                     },
                   ),
