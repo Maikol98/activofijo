@@ -57,7 +57,7 @@ class _HomePageState extends State<NavegationRevisionTecnicaPage> {
       floatingActionButton:FloatingActionButton(
         child: Icon( Icons.add ),
         onPressed: () {
-          print("agregar");
+          Navigator.pushReplacementNamed(context, 'tranferencia/create');
         }
       )
       
