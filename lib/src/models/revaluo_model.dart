@@ -38,13 +38,13 @@ class Revaluo {
   });
 
   Revaluo.fromJsonMap( Map<String,dynamic> json ){
-    codBien = json['codBien'];
-    nombreBien = json['nombreBien'];
-    nombreCustodio = json['nombreCustodio'];
-    nombreOperador = json['nombreOperador'];
-    estado = json['estado'];
-    fechaHora = json['fechaHora'];
-    monto = json['monto'];
-    descripcion = json['descripcion'];
+    codBien = json['CodBien'];
+    nombreBien = json['NombreBien'];
+    nombreCustodio = json['NombreCustodio'];
+    nombreOperador = json['NombreOperador'];
+    estado = json['Estado'];
+    fechaHora = json['FechaHora'];
+    monto = json['Monto'];
+    descripcion = json['Descripcion'];
   }
 }

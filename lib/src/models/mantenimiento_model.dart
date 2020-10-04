@@ -39,14 +39,14 @@ class Mantenimiento {
   });
 
   Mantenimiento.fromJsonMap( Map<String,dynamic> json ){
-    codBien = json['codBien'];
-    nombreBien = json['nombreBien'];
-    nombreCustodio = json['nombreCustodio'];
-    nombreOperador = json['nombreOperador'];
-    fechaInicio = json['fechaInicio'];
-    fechaFinalizo = json['fechaFinalizo'];
-    problema = json['problema'];
-    solucion = json['solucion'];
-    costo = json['costo'];
+    codBien = json['CodBien'];
+    nombreBien = json['NombreBien'];
+    nombreCustodio = json['NombreCustodio'];
+    nombreOperador = json['NombreOperador'];
+    fechaInicio = json['FechaInicio'];
+    fechaFinalizo = json['FechaFinalizo'];
+    problema = json['Problema'];
+    solucion = json['Solucion'];
+    costo = json['Costo'];
   }
 }
