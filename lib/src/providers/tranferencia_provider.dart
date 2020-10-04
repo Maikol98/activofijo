@@ -33,18 +33,17 @@ class TranferenciaProvider {
   }
 
   Future<List<Custodio>> getCustodio() async {
-    final url = Uri.https(_url,'/api/Ubicacion');
+    final url = Uri.https(_url,'/api/Custodio');
 
     final resp = await http.get( url );
     final decodeData = json.decode(resp.body);
   
     final dato = new Custodios.fromJsonList(decodeData);
-    
     return dato.items;
   }
 
   Future<List<Responsable>> getResponsable() async {
-    final url = Uri.https(_url,'/api/Ubicacion');
+    final url = Uri.https(_url,'/api/Responsable');
 
     final resp = await http.get( url );
     final decodeData = json.decode(resp.body);
@@ -55,7 +54,7 @@ class TranferenciaProvider {
   }
 
   Future<List<Bien>> getBien() async {
-    final url = Uri.https(_url,'/api/Ubicacion');
+    final url = Uri.https(_url,'/api/Bien');
 
     final resp = await http.get( url );
     final decodeData = json.decode(resp.body);
