@@ -6,7 +6,7 @@ import 'package:softwareproject/src/models/revision_tecnica_mantenimiento_page.d
 class TranferenciaProvider {
   String _url     = 'fierce-dawn-95981.herokuapp.com';
   
-  Future<List<RevisionMantenimiento>> getRevision() async {
+  Future<List<RevisionMantenimiento>> getRevisionMantenimiento() async {
     final url = Uri.https(_url,'/api/RevisionTecnica/Mantenimiento');
 
     final resp = await http.get( url );
