@@ -60,7 +60,7 @@ class RevisionTecnicaPage extends StatelessWidget {
   
   Widget _card1(Revision data,BuildContext context){
     
-    return Card(
+    return     Card(
       //Que tan alta estara la tarjeta en realicion a la sobre que va a proyectar
       //Sombra
       elevation: 3.0,
@@ -75,25 +75,45 @@ class RevisionTecnicaPage extends StatelessWidget {
             subtitle: Text("Codigo" + data.codBien + '\n'
                           + "Nombre Bien: " + data.nombreBien + '\n' 
                           + "Custodio: " + data.nombreCustodio + '\n'
-                          + "Operador: " + data.nombreOperador + '\n'),
+                          + "Operador: " + data.nombreOperador + '\n'
+                          + "Fecha: " + data.fechaHora),
           ),
           //Ordenar en una fila
           Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(data.fechaHora, textAlign: TextAlign.center, textScaleFactor: 0.9,),
-              ),
             
-            
-          ],
-
-
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                new FlatButton.icon(
+                  icon: const Icon(Icons.keyboard_arrow_down, size: 12.0, color: Colors.redAccent),
+                  label: const Text('Baja',style: TextStyle(fontSize: 13.0)),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, 'baja/create', arguments: data);
+                  }
+                ),
+                new FlatButton.icon(
+                  icon: const Icon(Icons.settings, size: 12.0, color: Colors.brown),
+                  label: const Text('Mantenimiento',style: TextStyle(fontSize: 13.0)),
+                  onPressed: () {
+                    print('Comenta algo');
+                  },
+                ),
+                new FlatButton.icon(
+                  icon: const Icon(Icons.attach_money, size: 12.0, color: Colors.green),
+                  label: const Text('Revaluo',style: TextStyle(fontSize: 13.0)),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, 'revaluoRevision/create', arguments: data);
+                  }
+                )
+              ],
+          
           ),
+
+          
         ],
       ),
     );
-
-
+    
+    
   }
 
 }

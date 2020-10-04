@@ -75,20 +75,17 @@ class MantenimientoPage extends StatelessWidget {
             subtitle: Text("Codigo" + data.codBien + '\n'
                           + "Nombre Bien: " + data.nombreBien + '\n' 
                           + "Custodio: " + data.nombreCustodio + '\n'
-                          + "Operador: " + data.nombreOperador + '\n'),
+                          + "Operador: " + data.nombreOperador + '\n'
+                          + "Fecha: " + data.fechaHora),
           ),
           //Ordenar en una fila
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(data.fechaHora, textAlign: TextAlign.center, textScaleFactor: 0.9,),
-              ),
-            
-            
-          ],
-
-
-          ),
+          new FlatButton.icon(
+            icon: const Icon(Icons.attach_money, size: 12.0, color: Colors.green),
+            label: const Text('Revaluo',style: TextStyle(fontSize: 13.0)),
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, 'revaluoRManteni/create', arguments: data);
+            }
+          )
         ],
       ),
     );
