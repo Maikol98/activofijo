@@ -12,7 +12,9 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
 
   String _custodioOrigen = '';
   String _custodioDestino = '';
-  String _email = '';
+  String _nroTranferencia = '';
+  String _responsable = '';
+  String _bien = '';
 
 
   final tranferenciaProvider = new TranferenciaProvider();  
@@ -29,14 +31,24 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
         //Input
         children: <Widget>[
+          
           //Numero Tranferencia
           _inputNumeroTraferencia(),
+          
           //Fecha
           //_crearFecha(context),
+          
           //Custodio origen
           getCustodioDropdown(_custodioOrigen),
+          
           //Custodio destino
           getCustodioDropdown(_custodioDestino),
+
+          //Responsable
+          getResponsableDropdown(_responsable),
+
+          //Bien
+          getBienDropdown(_bien),
           
         ],
       ),
@@ -58,33 +70,9 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
           ),
       //Obtener valor del texto a la variable _nombre, valor es el valor que tiene el texto
       onChanged: (valor) => setState(() {
-            _email = valor;
+            _nroTranferencia = valor;
       }));
   }
-
-  //Crear Fecha
-  // Widget _crearFecha(BuildContext context) {
-  //   return TextField(
-  //     enableInteractiveSelection: false,
-  //     //Decir que este input CrearFecha esta relaccionada con InputFieldDateController
-  //     controller: _inputFieldDateController,
-  //     //Decoracion del input
-  //     decoration: InputDecoration(
-  //         //Agregar Borde
-  //         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
-  //         hintText: 'Fecha de Nacimiento',
-  //         labelText: 'Fecha de Nacimiento',
-  //         //Icono derecha
-  //         suffixIcon: Icon(Icons.perm_contact_calendar),
-  //         //Icono Izquierda
-  //         icon: Icon(Icons.calendar_today)),
-  //     onTap: () {
-  //       //Ocultar el focus, cuando uno presiona click, no aparezca escribir
-  //       FocusScope.of(context).requestFocus(new FocusNode());
-  //       _selectDate(context);
-  //     },
-  //   );
-  // }
 
   //Custodio
   Widget getCustodioDropdown(String _custodio){
@@ -142,6 +130,130 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
       lista.add(DropdownMenuItem(
         child: Text(dato.nombre),
         value: dato.codCustodio.toString(),
+      ));
+    });
+
+    return lista;
+  }
+
+  //Responsable
+  Widget getResponsableDropdown(String value){
+    return FutureBuilder(
+      future: tranferenciaProvider.getResponsable(),
+      //snapshot optiene la respuesta del http
+      builder: (BuildContext context, AsyncSnapshot<List> snapshot){
+        //print(snapshot.data);
+       
+        if (snapshot.hasData){
+            return Row(
+              
+              children: <Widget>[
+                SizedBox(
+                  width: 30.0,
+                ),
+                //Expandir al maximo
+                Expanded(
+                  child: DropdownButton(
+                    
+                    //Valor es la opcion seleccionada
+                    value: value,
+                    items: _agregarDatosResponsable(snapshot.data),
+                    //Actualizar el Dropdown y poner el texto seleccionado
+                    onChanged: (opt) {
+                      setState(() {
+                        value = opt;
+                      });
+                    },
+                  ),
+                )
+              ],
+            );
+        }else{
+            return Container(
+              height: 400.0,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+        }
+
+      }
+    ); 
+  }
+  List<DropdownMenuItem<String>> _agregarDatosResponsable(data) {
+    List<DropdownMenuItem<String>> lista = new List();
+    
+    lista.add(DropdownMenuItem(
+      child: Text('Seleccione un responsable'),
+      value: '',
+    ));
+
+    data.forEach((dato) {
+      lista.add(DropdownMenuItem(
+        child: Text(dato.nombre),
+        value: dato.codResponsable.toString(),
+      ));
+    });
+
+    return lista;
+  }
+
+  //Bien
+  Widget getBienDropdown(String value){
+    return FutureBuilder(
+      future: tranferenciaProvider.getBien(),
+      //snapshot optiene la respuesta del http
+      builder: (BuildContext context, AsyncSnapshot<List> snapshot){
+        //print(snapshot.data);
+       
+        if (snapshot.hasData){
+            return Row(
+              
+              children: <Widget>[
+                SizedBox(
+                  width: 30.0,
+                ),
+                //Expandir al maximo
+                Expanded(
+                  child: DropdownButton(
+                    
+                    //Valor es la opcion seleccionada
+                    value: value,
+                    items: _agregarDatosBien(snapshot.data),
+                    //Actualizar el Dropdown y poner el texto seleccionado
+                    onChanged: (opt) {
+                      setState(() {
+                        value = opt;
+                      });
+                    },
+                  ),
+                )
+              ],
+            );
+        }else{
+            return Container(
+              height: 400.0,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+        }
+
+      }
+    ); 
+  }
+  List<DropdownMenuItem<String>> _agregarDatosBien(data) {
+    List<DropdownMenuItem<String>> lista = new List();
+    
+    lista.add(DropdownMenuItem(
+      child: Text('Seleccione un bien'),
+      value: '',
+    ));
+
+    data.forEach((dato) {
+      lista.add(DropdownMenuItem(
+        child: Text(dato.nombre),
+        value: dato.codBien,
       ));
     });
 
