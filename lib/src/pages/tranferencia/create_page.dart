@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:softwareproject/src/providers/tranferencia_provider.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 
@@ -66,7 +67,8 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
             splashColor: Colors.amber,
             color: Colors.blueAccent,
             onPressed: () async {
-
+              //Sacar el nombre del Usuario
+              final prefs = new PreferenciasUsuario();
               //Falta agregar las validaciones
               Map<String,String> datos = {
                 'custodioOrigen'    : _custodioOrigen,
@@ -74,7 +76,8 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
                 'nroTranferencia'   : _nroTranferencia,
                 'responsable'       : _responsable,
                 'bien'              : _bien,
-                'fecha'             : _fecha
+                'fecha'             : _fecha,
+                'idUsuario'         : prefs.codigoUsuario.toString()
               };
 
               (await tranferenciaProvider.postDatos(datos) == 1) ? 
