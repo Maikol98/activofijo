@@ -58,6 +58,17 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
           //Bien
           getBienDropdown(),
           Divider(),
+
+          //Boton
+          RaisedButton(
+            disabledColor: Colors.amber,
+            child: Text("Guardar"),
+            splashColor: Colors.amber,
+            color: Colors.blueAccent,
+            onPressed: ()  {
+              Navigator.pushReplacementNamed(context, 'tranferencia');
+            },
+          ),
         ],
       ),
     );
@@ -115,7 +126,6 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
       });
     }
   }
-
 
   //Custodio Origen
   Widget getCustodioOrigenDropdown(){
@@ -351,5 +361,6 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
 
     return lista;
   }
+
 
 }
