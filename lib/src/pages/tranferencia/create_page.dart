@@ -62,7 +62,7 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
           //Boton
           RaisedButton(
             disabledColor: Colors.amber,
-            child: Text("Guardar"),
+            child: Text("Guardar", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),),
             splashColor: Colors.amber,
             color: Colors.blueAccent,
             onPressed: ()  {
