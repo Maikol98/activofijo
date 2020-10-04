@@ -26,7 +26,7 @@ class _HomePageState extends State<NavegationRevisionTecnicaPage> {
     return Scaffold(
               
         appBar: AppBar(
-          title: Text('Bitacora'),
+          title: Text('Revision Tecnica'),
         ),
         drawer: MenuWidget(),
         
@@ -57,7 +57,7 @@ class _HomePageState extends State<NavegationRevisionTecnicaPage> {
       floatingActionButton:FloatingActionButton(
         child: Icon( Icons.add ),
         onPressed: () {
-          Navigator.pushReplacementNamed(context, 'tranferencia/create');
+          Navigator.pushReplacementNamed(context, 'revisionTecnica/create');
         }
       )
       

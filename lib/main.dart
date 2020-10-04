@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:softwareproject/src/pages/bitacora_page.dart';
 import 'package:softwareproject/src/pages/home.dart';
 import 'package:softwareproject/src/pages/login.dart';
+import 'package:softwareproject/src/pages/navegation_revision_tecnica/create_page.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/index_page.dart';
 import 'package:softwareproject/src/pages/tranferencia/create_page.dart';
 import 'package:softwareproject/src/pages/tranferencia/index_page.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         'tranferencia'          : (BuildContext context) => TranferenciaPage(),
         'tranferencia/create'   : (BuildContext context) => CreateTranferenciaPage(),
         'revisionTecnica'       : (BuildContext context) => NavegationRevisionTecnicaPage(),
+        'revisionTecnica/create': (BuildContext context) => CreateRevisionTecnicaPage(),
       },
     );
   }

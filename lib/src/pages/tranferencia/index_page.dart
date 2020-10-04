@@ -25,7 +25,7 @@ class TranferenciaPage extends StatelessWidget {
             return Scaffold(
               
               appBar: AppBar(
-                title: Text('Bitacora'),
+                title: Text('Tranferencia'),
               ),
               drawer: MenuWidget(),
               
