@@ -23,9 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     final prefs = new PreferenciasUsuario();
-    //print(prefs.codigoUsuario);
+    print(prefs.codigoUsuario);
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -35,6 +34,7 @@ class MyApp extends StatelessWidget {
         const Locale('en', 'US'), // English, no country code
         const Locale('es', 'ES'), 
       ],
+      debugShowCheckedModeBanner: false,
       title: 'Software',
 
       initialRoute: 'login',
