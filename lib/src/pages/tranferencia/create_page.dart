@@ -15,6 +15,9 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
   String _nroTranferencia = '';
   String _responsable = '';
   String _bien = '';
+  String _fecha = '';
+
+  TextEditingController _inputFieldDateController = new TextEditingController();
 
 
   final tranferenciaProvider = new TranferenciaProvider();  
@@ -34,22 +37,27 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
           
           //Numero Tranferencia
           _inputNumeroTraferencia(),
+          Divider(),
           
           //Fecha
-          //_crearFecha(context),
-          
+          _crearFecha(context),
+          Divider(),
+
           //Custodio origen
           getCustodioOrigenDropdown(),
+          Divider(),
           
           //Custodio destino
           getCustodioDestinoDropdown(),
+          Divider(),
 
           //Responsable
           getResponsableDropdown(),
+          Divider(),
 
           //Bien
           getBienDropdown(),
-          
+          Divider(),
         ],
       ),
     );
@@ -73,6 +81,41 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
             _nroTranferencia = valor;
       }));
   }
+
+  //Fecha
+  Widget _crearFecha(BuildContext context) {
+    return TextField(
+      enableInteractiveSelection: false,
+      controller: _inputFieldDateController,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+          hintText: 'Fecha',
+          labelText: 'Fecha',
+          suffixIcon: Icon(Icons.calendar_today),
+      ),
+      onTap: () {
+        FocusScope.of(context).requestFocus(new FocusNode());
+        _selectDate(context);
+      },
+    );
+  }
+  void _selectDate(BuildContext context) async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2019),
+        lastDate: new DateTime(2025),
+        
+        locale: Locale('es')
+    );
+    if (picked != null) {
+      setState(() {
+        _fecha = picked.toString();
+        _inputFieldDateController.text = _fecha;
+      });
+    }
+  }
+
 
   //Custodio Origen
   Widget getCustodioOrigenDropdown(){

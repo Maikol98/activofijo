@@ -6,6 +6,7 @@ import 'package:softwareproject/src/pages/tranferencia/create_page.dart';
 import 'package:softwareproject/src/pages/tranferencia/index_page.dart';
 import 'package:softwareproject/src/pages/usuario.dart';
 import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
  
 void main() async { 
@@ -22,9 +23,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     final prefs = new PreferenciasUsuario();
-    print(prefs.codigoUsuario);
+    //print(prefs.codigoUsuario);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // English, no country code
+        const Locale('es', 'ES'), 
+      ],
       title: 'Software',
 
       initialRoute: 'login',
