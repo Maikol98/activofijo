@@ -64,4 +64,16 @@ class TranferenciaProvider {
     return dato.items;
   }
 
+  Future<int> postDatos(Map<String,String> datos) async{
+
+    final url = Uri.http(_url, 'api/Tranferencia/create');
+    final resp = await http.post(url,body: datos);
+
+    final decodeData = json.decode(resp.body);
+
+    print(decodeData);
+
+    return null;
+  }
+
 }

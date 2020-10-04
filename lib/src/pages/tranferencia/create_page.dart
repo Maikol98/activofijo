@@ -65,8 +65,22 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
             child: Text("Guardar", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),),
             splashColor: Colors.amber,
             color: Colors.blueAccent,
-            onPressed: ()  {
-              Navigator.pushReplacementNamed(context, 'tranferencia');
+            onPressed: () async {
+
+              //Falta agregar las validaciones
+              Map<String,String> datos = {
+                'custodioOrigen'    : _custodioOrigen,
+                'custodioDestino'   : _custodioDestino,
+                'nroTranferencia'   : _nroTranferencia,
+                'responsable'       : _responsable,
+                'bien'              : _bien,
+                'fecha'             : _fecha
+              };
+
+              (await tranferenciaProvider.postDatos(datos) == 1) ? 
+                          Navigator.pushReplacementNamed(context, 'tranferencia') : print('Error');
+                           
+
             },
           ),
         ],
