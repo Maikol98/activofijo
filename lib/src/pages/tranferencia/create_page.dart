@@ -60,16 +60,20 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
           getBienDropdown(),
           Divider(),
 
-          //Boton
+          //Boton para enviar la peticion
           RaisedButton(
             disabledColor: Colors.amber,
             child: Text("Guardar", style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),),
             splashColor: Colors.amber,
             color: Colors.blueAccent,
             onPressed: () async {
+
               //Sacar el nombre del Usuario
               final prefs = new PreferenciasUsuario();
+
               //Falta agregar las validaciones
+
+              //Agregar los datos a un Map, para enviarlo mas rapido
               Map<String,String> datos = {
                 'custodioOrigen'    : _custodioOrigen,
                 'custodioDestino'   : _custodioDestino,
@@ -81,6 +85,7 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
               };
 
               (await tranferenciaProvider.postDatos(datos) == 1) ? 
+                          // Llamar al providers, para poder guardar los datos a la DB
                           Navigator.pushReplacementNamed(context, 'tranferencia') : print('Error');
                            
 
