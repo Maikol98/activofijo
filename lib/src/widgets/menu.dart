@@ -31,7 +31,7 @@ class MenuWidget extends StatelessWidget {
           ListTile(
             title: Text('DEPRECIACION'),
             onTap: () {
-              
+              Navigator.pushNamed(context, 'depreciacion');
             },
           ),
           ListTile(

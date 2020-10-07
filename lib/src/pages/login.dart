@@ -25,22 +25,19 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     _user.text = prefs.correo ;
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            color: Colors.blueAccent[100],
-          ),
-          _loginCreate(),
-        ],
+      body: Container(
+        color: Colors.blueAccent[100],
+        child: _loginCreate(),
       ),
+      
     );
   }
 
   Widget _loginCreate(){
-    return  Container(
-      padding: EdgeInsets.only(left: 10.0,right: 10.0),
-      margin: EdgeInsets.symmetric(horizontal: 60.0, vertical: 180.0),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0),
       child: ListView(
+        padding: EdgeInsets.only(top: 80.0),
         children: <Widget>[
           _imagenPerfil(),
           SizedBox(height: 20.0),
@@ -52,10 +49,6 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(height: 10.0),
           _crearButton(),
         ],
-      ),
-      decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(15.0),
       ),
     );
   }
@@ -115,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
         side: BorderSide(width: 1.0),
         borderRadius: BorderRadius.circular(20.0) 
       ),
-      color: Colors.green,
+      color: Colors.green[400],
       elevation: 12.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
