@@ -2,8 +2,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:softwareproject/src/models/bien_model.dart';
-import 'package:softwareproject/src/models/custodio.mode.dart';
-import 'package:softwareproject/src/models/responsable.model.dart';
+import 'package:softwareproject/src/models/custodio_mode.dart';
+import 'package:softwareproject/src/models/responsable_model.dart';
 import 'package:softwareproject/src/models/tranferencia_model.dart';
 import 'package:softwareproject/src/models/ubicacion_model.dart';
 

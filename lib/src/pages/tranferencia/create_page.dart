@@ -86,8 +86,7 @@ class _CreateTranferenciaState extends State<CreateTranferenciaPage> {
 
               (await tranferenciaProvider.postDatos(datos) == 1) ? 
                           // Llamar al providers, para poder guardar los datos a la DB
-                          Navigator.pushReplacementNamed(context, 'tranferencia') : print('Error');
-                           
+                          Navigator.pushReplacementNamed(context, 'tranferencia') : print('Error');             
 
             },
           ),

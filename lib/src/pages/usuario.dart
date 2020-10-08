@@ -60,11 +60,10 @@ class UsuarioPage extends StatelessWidget {
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(usuarios[index].name),
-                    Text(usuarios[index].email)
+                    Text('Nombre: ' + usuarios[index].name),
+                    Text('Email: ' + usuarios[index].email)
                   ],
                 ),
-                subtitle: Text(usuarios[index].estado.toString()),
               ),
               Divider(thickness: 1.0),
               Row(
@@ -104,8 +103,7 @@ class UsuarioPage extends StatelessWidget {
                                   FlatButton(
                                     child: Text('Eliminar'),
                                     onPressed: () {
-                                      //Llamar a Eliminar
-                                      print('Eliminar con codigo: ' + usuarios[index].id.toString());
+                                      usuarioProvider.deleteUsuario(usuarios[index].id);
                                       Navigator.of(context).pop();
                                     },
                                   )

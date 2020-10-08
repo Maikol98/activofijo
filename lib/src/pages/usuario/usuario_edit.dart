@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:softwareproject/src/providers/usuario_provider.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 
 class UsuarioEdit extends StatefulWidget {
@@ -17,7 +18,8 @@ class _UsuarioEditState extends State<UsuarioEdit> {
   TextEditingController _password = new TextEditingController();
 
   final prefs = new PreferenciasUsuario();
-  
+  final usuarioProvider = new UsuarioProvider();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,9 +134,10 @@ class _UsuarioEditState extends State<UsuarioEdit> {
           'name' : _name.text,
           'email': _email.text,
           'password' : _password.text,
-          'CodigoUsuario' : prefs.codigoUsuario
+          'CodigoUsuario' : prefs.codigoUsuario.toString()
         };
-        //llamar a esta wea
+        //usuarioProvider.editUsuario(codigo, datos)
+        Navigator.pushNamed(context, 'usuario');
         print(datos);
       },
     );
