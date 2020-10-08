@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:softwareproject/src/models/bien_model.dart';
-import 'package:softwareproject/src/models/custodio.mode.dart';
+import 'package:softwareproject/src/models/custodio_mode.dart';
 import 'package:softwareproject/src/models/operador_model.dart';
 import 'dart:convert';
 import 'package:softwareproject/src/models/revision_tecnica_model.dart';

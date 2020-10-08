@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:softwareproject/src/providers/usuario_provider.dart';
 import 'package:softwareproject/src/widgets/menu.dart';
 
 class UsuarioCreate extends StatefulWidget {
@@ -11,6 +12,8 @@ class UsuarioCreate extends StatefulWidget {
 class _UsuarioCreateState extends State<UsuarioCreate> {
 
   final prefs = new PreferenciasUsuario();
+
+  UsuarioProvider usuarioProvider = new UsuarioProvider();
 
   bool _ocultarContra = true;
   int _value = 1;
@@ -156,14 +159,16 @@ class _UsuarioCreateState extends State<UsuarioCreate> {
         ],
       ),
       onPressed: (){
+        final cod = prefs.codigoUsuario;
         Map<String, dynamic> datos = {
           'name' : _name.text,
           'email': _email.text,
           'password' : _password.text,
-          'rol' : _value,
-          'CodigoUsuario' : prefs.codigoUsuario
+          'rol' : _value.toString(),
+          'CodigoUsuario' : cod.toString()
         };
-        //llamar a esta wea
+        usuarioProvider.crearusuario(datos);
+        Navigator.pushNamed(context, 'usuario');
         print(datos);
       },
     );
