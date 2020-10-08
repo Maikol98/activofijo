@@ -13,54 +13,51 @@ class TranferenciaPage extends StatelessWidget {
     //Obtener la peticio http
     final tranferenciaProvider = new TranferenciaProvider();
 
-    
-
-    return FutureBuilder(
-      future: tranferenciaProvider.getTranferencia(),
-      //snapshot optiene la respuesta del http
-      builder: (BuildContext context, AsyncSnapshot<List> snapshot){
-        //print(snapshot.data);
-       
-        if (snapshot.hasData){
-            return Scaffold(
-              
-              appBar: AppBar(
-                title: Text('Tranferencia'),
-              ),
-              drawer: MenuWidget(),
-              
-              body: ListView.builder(
-                padding: EdgeInsets.all(10.0),
-                itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context,int index){
-                  return Container(
-                      //Hijo de hijos
-                      child: Column(children: <Widget>[
-                        _card1(snapshot.data[index],context),
-                        SizedBox(height: 10.0),
-                      ],),
-                  );
-                }
-              ),
-
-              floatingActionButton:FloatingActionButton(
-                child: Icon( Icons.add ),
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, 'tranferencia/create');
-                }
-              )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tranferencia'),
+      ),
+      drawer: MenuWidget(),
+      body: FutureBuilder(
+        future: tranferenciaProvider.getTranferencia(),
+        //snapshot optiene la respuesta del http
+        builder: (BuildContext context, AsyncSnapshot<List> snapshot){
+          //print(snapshot.data);
+        
+          if (snapshot.hasData){
+            return ListView.builder(
+              padding: EdgeInsets.all(10.0),
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context,int index){
+                return Container(
+                    //Hijo de hijos
+                    child: Column(children: <Widget>[
+                      _card1(snapshot.data[index],context),
+                      SizedBox(height: 10.0),
+                    ],),
+                );
+              }
             );
-        }else{
-            return Container(
-              height: 400.0,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
+
+          }else{
+              return Container(
+                height: 400.0,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+          }
+
         }
+    ),
 
-      }
-    ); 
+      floatingActionButton:FloatingActionButton(
+        child: Icon( Icons.add ),
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, 'tranferencia/create');
+        }
+      )
+    );
     
   }
 

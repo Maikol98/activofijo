@@ -18,7 +18,9 @@ class IndexBienPage extends StatelessWidget {
       body: _listado(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){}
+        onPressed: (){
+          Navigator.pushNamed(context, 'Bien/Create');
+        }
       ),
     );
   }

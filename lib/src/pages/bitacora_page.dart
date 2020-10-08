@@ -16,45 +16,48 @@ class BitacoraPage extends StatelessWidget {
 
     
 
-    return FutureBuilder(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bitacora'),
+      ),
+      drawer: MenuWidget(),
+
+      body: FutureBuilder(
       future: bitacoraProviders.getBitacora(),
       //snapshot optiene la respuesta del http
-      builder: (BuildContext context, AsyncSnapshot<List> snapshot){
-        //print(snapshot.data);
-       
-        if (snapshot.hasData){
-            return Scaffold(
-              
-              appBar: AppBar(
-                title: Text('Bitacora'),
-              ),
-              drawer: MenuWidget(),
-              
-              body: ListView.builder(
-                padding: EdgeInsets.all(10.0),
-                itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context,int index){
-                  return Container(
-                      //Hijo de hijos
-                      child: Column(children: <Widget>[
-                        _card1(snapshot.data[index],context),
-                        SizedBox(height: 10.0),
-                      ],),
-                  );
-                }
-              ),
+        builder: (BuildContext context, AsyncSnapshot<List> snapshot){
+          //print(snapshot.data);
+        
+          if (snapshot.hasData){
+            return ListView.builder(
+              padding: EdgeInsets.all(10.0),
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context,int index){
+                return Container(
+                    //Hijo de hijos
+                    child: Column(children: <Widget>[
+                      _card1(snapshot.data[index],context),
+                      SizedBox(height: 10.0),
+                    ],),
+                );
+              }
             );
-        }else{
-            return Container(
-              height: 400.0,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-        }
+          }else{
+              return Container(
+                height: 400.0,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+          }
 
-      }
-    ); 
+        }
+      ),
+    );
+    
+    
+    
+
     
   }
 

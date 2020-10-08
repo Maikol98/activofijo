@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:softwareproject/src/pages/Bien/create_page.dart';
 import 'package:softwareproject/src/pages/Bien/indexBien.dart';
 import 'package:softwareproject/src/pages/bitacora_page.dart';
 import 'package:softwareproject/src/pages/empleado/listarempleado.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
         'Mantenimieto/create'   : (BuildContext context)=>CreateMantenimientoPage(),
         'listarEmpleado'        : (BuildContext context)=>EmpleadoPage(),
         'indexBien'             : (BuildContext context)=>IndexBienPage(),
+        'Bien/Create'           : (BuildContext context)=>CreateBienPage(),
       },
       theme: ThemeData(
         primaryColor: Colors.deepPurple[800]
