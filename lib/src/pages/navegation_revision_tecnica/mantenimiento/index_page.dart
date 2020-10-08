@@ -17,7 +17,7 @@ class MantenimientoPage extends StatelessWidget {
       future: mantenimientoProviders.getRevisionMantenimiento(),
       //snapshot optiene la respuesta del http
       builder: (BuildContext context, AsyncSnapshot<List> snapshot){
-        //print(snapshot.data);
+        
        
         if (snapshot.hasData){
             return Scaffold(

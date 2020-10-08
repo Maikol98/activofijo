@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:softwareproject/src/preferencias_usuario/preferencias_usuario.dart';
 
 class MenuWidget extends StatelessWidget {
-  const MenuWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class MenuWidget extends StatelessWidget {
               ], 
             ),
             decoration: BoxDecoration(
-              color: Colors.blue
+              color: Theme.of(context).primaryColor
             ),
           ),
           ListTile(
@@ -36,9 +35,7 @@ class MenuWidget extends StatelessWidget {
           ),
           ListTile(
             title: Text('BIEN'),
-            onTap: () {
-              
-            },
+            onTap: () => Navigator.pushNamed(context, 'indexBien')
           ),
           ListTile(
             title: Text('TRANSFERENCIA'),
@@ -46,9 +43,7 @@ class MenuWidget extends StatelessWidget {
           ),
           ListTile(
             title: Text('EMPLEADOS'),
-            onTap: () {
-              
-            },
+            onTap: () => Navigator.pushNamed(context, 'listarEmpleado'),
           ),
           ListTile(
             title: Text('INGRESO'),

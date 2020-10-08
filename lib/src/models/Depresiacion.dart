@@ -1,4 +1,20 @@
 
+class Depreciaciones{
+
+  List<Depreciacion> items = new List();
+  Depreciaciones();
+
+  Depreciaciones.fromJsonList(List<dynamic> jsonList){
+    if (jsonList == null) return;
+
+    for (var item in jsonList) {
+      final depreciacion = new Depreciacion.fromjsonMap(item);
+      items.add(depreciacion);
+    }
+  }
+}
+
+
 class Depreciacion {
   String codBien;
   String nombre;
@@ -20,14 +36,14 @@ class Depreciacion {
     this.depreciacion,
   });
 
-  // Depreciacion.fromjsonMap(Map<String, dynamic> json){
-  //   codBien = ,
-  //   nombre,
-  //   categoria,
-  //   valorCompra,
-  //   vidautil,
-  //   descripcion,
-  //   fechaAdquisicion,
-  //   depreciacion,
-  // }
+  Depreciacion.fromjsonMap(Map<String, dynamic> json){
+    codBien          = json['CodBien'];
+    nombre           = json['Nombre']; 
+    categoria        = json['categoria']; 
+    valorCompra      = json['ValorCompra'];
+    vidautil         = json['vidautil'];
+    descripcion      = json['Descripcion'];
+    fechaAdquisicion = json['FechaAdquisicion'];
+    depreciacion     = json['depreciacion']; 
+  }
 }

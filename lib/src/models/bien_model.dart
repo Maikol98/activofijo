@@ -43,17 +43,17 @@ class Bien {
   });
 
   Bien.fromJsonMap( Map<String,dynamic> json ){
-    codBien = json['CodBien'];
-    nombre = json['Nombre'];
-    fechaAdquisicion = json['FechaAdquisicion'];
-    valorCompra = json['ValorCompra'];
-    estado = json['Estado'];
-    ubicacionDepartamento = json['UbicacionDepartamento'];
-    ubicacionAlmacen = json['UbicacionAlmacen'];
-    codCategoria = json['CodCategoria'];
-    codRubro = json['CodRubro'];
-    estadoBien = json['EstadoBien'];
-    nuevoValorRevaluo = json['NuevoValorRevaluo'];
+    codBien                 = json['CodBien'];
+    nombre                  = json['Nombre'];
+    fechaAdquisicion        = json['FechaAdquisicion'];
+    valorCompra             = json['ValorCompra'];
+    estado                  = json['Estado'];
+    ubicacionDepartamento   = json['UbicacionDepartamento'];
+    ubicacionAlmacen        = json['UbicacionAlmacen'];
+    codCategoria            = json['CodCategoria'];
+    codRubro                = json['CodRubro'];
+    estadoBien              = json['EstadoBien'];
+    nuevoValorRevaluo       = json['NuevoValorRevaluo'];
   }
 }
 

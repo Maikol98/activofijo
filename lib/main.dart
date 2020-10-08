@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:softwareproject/src/pages/Bien/indexBien.dart';
 import 'package:softwareproject/src/pages/bitacora_page.dart';
+import 'package:softwareproject/src/pages/empleado/listarempleado.dart';
 import 'package:softwareproject/src/pages/home.dart';
 import 'package:softwareproject/src/pages/login.dart';
 import 'package:softwareproject/src/pages/navegation_revision_tecnica/baja/create_page.dart';
@@ -55,15 +57,17 @@ class MyApp extends StatelessWidget {
         'crearusuario'          : (BuildContext context)=>UsuarioCreate(),
         'editusuario'           : (BuildContext context)=>UsuarioEdit(),
         'depreciacion'          : (BuildContext context)=>DepreciacionPage(),
-        'bitacora'              : (BuildContext context) => BitacoraPage(),
-        'tranferencia'          : (BuildContext context) => TranferenciaPage(),
-        'tranferencia/create'   : (BuildContext context) => CreateTranferenciaPage(),
-        'revisionTecnica'       : (BuildContext context) => NavegationRevisionTecnicaPage(),
-        'revisionTecnica/create': (BuildContext context) => CreateRevisionTecnicaPage(),
-        'baja/create'           : (BuildContext context) => CreateBajaPage(),
-        'revaluoRevision/create': (BuildContext context) => CreateRevaluoRevisionPage(),
-        'revaluoRManteni/create': (BuildContext context) => CreateRevaluoMantenimientoPage(),
-        'Mantenimieto/create'   : (BuildContext context) => CreateMantenimientoPage(),
+        'bitacora'              : (BuildContext context)=>BitacoraPage(),
+        'tranferencia'          : (BuildContext context)=>TranferenciaPage(),
+        'tranferencia/create'   : (BuildContext context)=>CreateTranferenciaPage(),
+        'revisionTecnica'       : (BuildContext context)=>NavegationRevisionTecnicaPage(),
+        'revisionTecnica/create': (BuildContext context)=>CreateRevisionTecnicaPage(),
+        'baja/create'           : (BuildContext context)=>CreateBajaPage(),
+        'revaluoRevision/create': (BuildContext context)=>CreateRevaluoRevisionPage(),
+        'revaluoRManteni/create': (BuildContext context)=>CreateRevaluoMantenimientoPage(),
+        'Mantenimieto/create'   : (BuildContext context)=>CreateMantenimientoPage(),
+        'listarEmpleado'        : (BuildContext context)=>EmpleadoPage(),
+        'indexBien'             : (BuildContext context)=>IndexBienPage(),
       },
       theme: ThemeData(
         primaryColor: Colors.deepPurple[800]
